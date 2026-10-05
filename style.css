@@ -4,22 +4,25 @@
 
 body {
   margin: 0;
-  padding: 20px;
+  padding: 10px;
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #dff5ff, #f8eaff);
   color: #27344d;
 }
 
 .game {
-  max-width: 1050px;
+  width: 100%;
+  max-width: 1100px;
   margin: auto;
 }
+
+/* CABEÇALHO */
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 
 header small {
@@ -28,31 +31,34 @@ header small {
 }
 
 h1 {
-  margin: 3px 0;
-  font-size: 45px;
+  margin: 0;
+  font-size: 32px;
 }
 
 header p {
   margin: 0;
+  font-size: 14px;
   color: #68738b;
 }
 
 .points {
   background: white;
-  padding: 15px 20px;
-  border-radius: 20px;
+  padding: 10px 15px;
+  border-radius: 15px;
   font-weight: bold;
-  box-shadow: 0 5px 20px #0002;
+  box-shadow: 0 4px 15px #0002;
 }
 
 /* QUARTO */
 
 .room {
-  height: 480px;
+  height: 350px;
   position: relative;
   overflow: hidden;
-  border: 8px solid white;
-  border-radius: 30px;
+
+  border: 6px solid white;
+  border-radius: 25px;
+
   background:
     linear-gradient(
       #bde9ff 0%,
@@ -60,46 +66,51 @@ header p {
       #d9b98c 62%,
       #d9b98c 100%
     );
-  box-shadow: 0 15px 40px #0002;
+
+  box-shadow: 0 10px 30px #0002;
 }
 
 /* JANELA */
 
 .window {
   position: absolute;
-  top: 45px;
-  left: 50px;
 
-  width: 190px;
-  height: 140px;
+  top: 25px;
+  left: 30px;
+
+  width: 150px;
+  height: 105px;
 
   background: #82d1ff;
-  border: 10px solid white;
-  border-radius: 15px;
 
-  font-size: 40px;
+  border: 7px solid white;
+  border-radius: 12px;
+
+  font-size: 30px;
   text-align: right;
-  padding: 5px;
+  padding: 4px;
 }
 
 /* POSTER */
 
 .poster {
   position: absolute;
-  top: 55px;
-  right: 70px;
+
+  top: 30px;
+  right: 45px;
 
   background: #fff1a8;
-  padding: 20px;
+
+  padding: 10px 15px;
 
   text-align: center;
 
-  border: 5px solid white;
-  border-radius: 12px;
+  border: 4px solid white;
+  border-radius: 10px;
 
   transform: rotate(4deg);
 
-  box-shadow: 0 5px 15px #0002;
+  box-shadow: 0 4px 10px #0002;
 }
 
 /* CAMA */
@@ -107,23 +118,23 @@ header p {
 .bed {
   position: absolute;
 
-  right: 30px;
-  bottom: 50px;
+  right: 20px;
+  bottom: 25px;
 
-  width: 290px;
-  height: 125px;
+  width: 220px;
+  height: 90px;
 
   background: #9c78d8;
 
-  border-radius: 80px 80px 20px 20px;
+  border-radius: 60px 60px 15px 15px;
 
-  border: 10px solid #805bbd;
+  border: 7px solid #805bbd;
 
   text-align: center;
 
-  padding-top: 20px;
+  padding-top: 12px;
 
-  font-size: 40px;
+  font-size: 30px;
 }
 
 /* TAPETE */
@@ -131,30 +142,34 @@ header p {
 .rug {
   position: absolute;
 
-  left: 28%;
-  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
 
-  width: 440px;
-  height: 90px;
+  bottom: 5px;
+
+  width: 330px;
+  height: 60px;
 
   background: #f5c5d7;
 
   border-radius: 50%;
 }
 
-/* CACHORRO */
+/* ÁREA DO CACHORRO */
 
 .dog-area {
   position: absolute;
 
   left: 50%;
-  bottom: 65px;
+  bottom: 30px;
 
   transform: translateX(-50%);
 
-  width: 250px;
-  height: 300px;
+  width: 230px;
+  height: 250px;
 }
+
+/* CACHORRO */
 
 .dog {
   position: absolute;
@@ -164,8 +179,8 @@ header p {
 
   transform: translateX(-50%);
 
-  width: 175px;
-  height: 260px;
+  width: 145px;
+  height: 220px;
 
   transition: 0.3s;
 }
@@ -175,11 +190,11 @@ header p {
 .head {
   position: absolute;
 
-  left: 27px;
-  top: 15px;
+  left: 22px;
+  top: 8px;
 
-  width: 120px;
-  height: 110px;
+  width: 100px;
+  height: 90px;
 
   background: white;
 
@@ -195,10 +210,10 @@ header p {
 .ear {
   position: absolute;
 
-  top: 18px;
+  top: 12px;
 
-  width: 48px;
-  height: 82px;
+  width: 38px;
+  height: 65px;
 
   background: #20242c;
 
@@ -208,12 +223,12 @@ header p {
 }
 
 .ear.left {
-  left: 14px;
+  left: 8px;
   transform: rotate(28deg);
 }
 
 .ear.right {
-  right: 14px;
+  right: 8px;
   transform: rotate(-28deg);
 }
 
@@ -222,11 +237,11 @@ header p {
 .spot {
   position: absolute;
 
-  right: 9px;
-  top: 5px;
+  right: 7px;
+  top: 4px;
 
-  width: 42px;
-  height: 52px;
+  width: 34px;
+  height: 43px;
 
   background: #252932;
 
@@ -238,10 +253,10 @@ header p {
 .eye {
   position: absolute;
 
-  top: 48px;
+  top: 40px;
 
-  width: 10px;
-  height: 13px;
+  width: 8px;
+  height: 11px;
 
   background: #17202b;
 
@@ -249,11 +264,11 @@ header p {
 }
 
 .left-eye {
-  left: 32px;
+  left: 27px;
 }
 
 .right-eye {
-  right: 32px;
+  right: 27px;
 }
 
 /* FOCINHO */
@@ -261,21 +276,23 @@ header p {
 .snout {
   position: absolute;
 
-  left: 36px;
-  bottom: 13px;
+  left: 30px;
+  bottom: 10px;
 
-  width: 48px;
-  height: 35px;
+  width: 40px;
+  height: 29px;
 
   background: #fff1e8;
 
   border-radius: 50%;
 
   text-align: center;
+
+  font-size: 12px;
 }
 
 .nose {
-  font-size: 13px;
+  font-size: 10px;
 }
 
 /* CORPO */
@@ -283,11 +300,11 @@ header p {
 .body {
   position: absolute;
 
-  left: 40px;
-  top: 105px;
+  left: 33px;
+  top: 88px;
 
-  width: 100px;
-  height: 120px;
+  width: 80px;
+  height: 100px;
 
   background: white;
 
@@ -303,11 +320,11 @@ header p {
 .body-spot {
   position: absolute;
 
-  left: 8px;
-  top: 25px;
+  left: 6px;
+  top: 20px;
 
-  width: 43px;
-  height: 52px;
+  width: 35px;
+  height: 43px;
 
   background: #242932;
 
@@ -319,34 +336,34 @@ header p {
 .leg {
   position: absolute;
 
-  top: 195px;
+  top: 165px;
 
-  width: 35px;
-  height: 65px;
+  width: 28px;
+  height: 55px;
 
   background: white;
 
   border: 3px solid #dce2ea;
 
-  border-radius: 20px;
+  border-radius: 18px;
 
   z-index: 2;
 }
 
 .leg1 {
-  left: 42px;
+  left: 35px;
 }
 
 .leg2 {
-  left: 70px;
+  left: 58px;
 }
 
 .leg3 {
-  right: 35px;
+  right: 30px;
 }
 
 .leg4 {
-  right: 62px;
+  right: 52px;
 }
 
 /* RABO */
@@ -355,58 +372,62 @@ header p {
   position: absolute;
 
   right: 0;
-  top: 135px;
+  top: 110px;
 
-  font-size: 60px;
+  font-size: 45px;
 
   color: #242932;
 
   transform: rotate(-25deg);
 }
 
-/* FALA */
+/* BALÃO DE FALA */
 
 .bubble {
   position: absolute;
 
-  top: -10px;
-  right: -40px;
+  top: 0;
+  right: -70px;
 
   background: white;
 
-  padding: 10px 14px;
+  padding: 8px 10px;
 
-  border-radius: 18px;
+  border-radius: 15px;
 
-  box-shadow: 0 7px 18px #0002;
+  box-shadow: 0 5px 12px #0002;
 
   font-weight: bold;
 
+  font-size: 12px;
+
   z-index: 8;
 
-  min-width: 170px;
+  width: 150px;
 
   text-align: center;
 }
 
 /* STATUS */
 
-.status,
-.actions {
+.status {
   background: white;
 
-  border-radius: 24px;
+  border-radius: 18px;
 
-  padding: 20px;
+  padding: 12px 18px;
 
-  margin-top: 16px;
+  margin-top: 10px;
 
-  box-shadow: 0 10px 30px #0001;
+  box-shadow: 0 6px 20px #0001;
 }
 
-.status h2,
-.actions h2 {
-  margin-top: 0;
+.status h2 {
+  display: inline-block;
+
+  margin: 0 15px 8px 0;
+
+  font-size: 18px;
 }
 
 .mood {
@@ -414,31 +435,35 @@ header p {
 
   background: #eaf8e8;
 
-  padding: 8px 15px;
+  padding: 5px 10px;
 
-  border-radius: 15px;
+  border-radius: 12px;
+
+  font-size: 13px;
 
   font-weight: bold;
-
-  margin-bottom: 15px;
 }
+
+/* BARRAS */
 
 .meter {
   display: grid;
 
-  grid-template-columns: 100px 1fr 35px;
+  grid-template-columns: 85px 1fr 30px;
 
-  gap: 10px;
+  gap: 8px;
 
   align-items: center;
 
-  margin: 10px 0;
+  margin: 6px 0;
+
+  font-size: 13px;
 
   font-weight: bold;
 }
 
 .bar {
-  height: 14px;
+  height: 11px;
 
   background: #e8edf3;
 
@@ -461,12 +486,32 @@ header p {
 
 /* BOTÕES */
 
+.actions {
+  background: white;
+
+  border-radius: 18px;
+
+  padding: 12px;
+
+  margin-top: 10px;
+
+  box-shadow: 0 6px 20px #0001;
+}
+
+.actions h2 {
+  text-align: center;
+
+  margin: 0 0 10px;
+
+  font-size: 18px;
+}
+
 .buttons {
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(8, 1fr);
 
-  gap: 12px;
+  gap: 7px;
 }
 
 button {
@@ -474,31 +519,33 @@ button {
 
   background: #f2f6ff;
 
-  border-radius: 18px;
+  border-radius: 13px;
 
-  padding: 15px 8px;
+  padding: 8px 4px;
 
   cursor: pointer;
 
-  font-size: 28px;
+  font-size: 22px;
 
   font-weight: bold;
 
   color: #27344d;
 
   transition: 0.2s;
+
+  min-height: 65px;
 }
 
 button span {
   display: block;
 
-  font-size: 14px;
+  font-size: 10px;
 
-  margin-top: 7px;
+  margin-top: 4px;
 }
 
 button:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 
   background: #e5f2ff;
 }
@@ -507,7 +554,7 @@ button:active {
   transform: scale(0.95);
 }
 
-/* ANIMAÇÃO */
+/* ANIMAÇÕES */
 
 .play {
   animation: jump 0.5s infinite alternate;
@@ -515,66 +562,138 @@ button:active {
 
 .sleep {
   transform: translateX(-50%) rotate(8deg);
+
   filter: brightness(0.8);
 }
 
 @keyframes jump {
+
   from {
     transform: translateX(-50%);
   }
 
   to {
-    transform: translateX(-50%) translateY(-18px);
+    transform: translateX(-50%) translateY(-15px);
   }
+
 }
+
+/* RODAPÉ */
 
 footer {
   text-align: center;
 
   color: #758095;
 
-  padding: 20px;
+  padding: 8px;
+
+  font-size: 12px;
 }
+
 
 /* CELULAR */
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
   body {
-    padding: 10px;
+    padding: 5px;
   }
 
   header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  .points {
+    font-size: 12px;
+    padding: 8px;
   }
 
   .room {
-    height: 430px;
+    height: 330px;
   }
 
   .window {
-    left: 20px;
-    transform: scale(0.75);
-    transform-origin: top left;
+    left: 10px;
+    top: 20px;
+
+    width: 110px;
+    height: 80px;
+
+    font-size: 25px;
   }
 
   .poster {
-    right: 10px;
-    transform: scale(0.7);
+    right: 15px;
+    top: 20px;
+
+    padding: 7px;
+
+    font-size: 12px;
   }
 
   .bed {
-    right: -40px;
-    transform: scale(0.8);
+    right: -30px;
+    bottom: 20px;
+
+    transform: scale(0.7);
     transform-origin: right bottom;
   }
 
+  .dog-area {
+    transform: translateX(-50%) scale(0.85);
+    transform-origin: bottom center;
+  }
+
+  .bubble {
+    right: -45px;
+  }
+
   .buttons {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  button {
+    min-height: 60px;
   }
 
   .meter {
-    grid-template-columns: 85px 1fr 30px;
+    grid-template-columns: 70px 1fr 25px;
   }
+
+}
+
+
+/* CELULAR PEQUENO */
+
+@media (max-width: 500px) {
+
+  .room {
+    height: 300px;
+  }
+
+  .dog-area {
+    transform: translateX(-50%) scale(0.7);
+  }
+
+  .buttons {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  button {
+    font-size: 19px;
+    min-height: 55px;
+  }
+
+  button span {
+    font-size: 8px;
+  }
+
+  .status {
+    padding: 10px;
+  }
+
 }
