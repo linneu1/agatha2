@@ -1,0 +1,580 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #dff5ff, #f8eaff);
+  color: #27344d;
+}
+
+.game {
+  max-width: 1050px;
+  margin: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+header small {
+  color: #70798c;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 3px 0;
+  font-size: 45px;
+}
+
+header p {
+  margin: 0;
+  color: #68738b;
+}
+
+.points {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  box-shadow: 0 5px 20px #0002;
+}
+
+/* QUARTO */
+
+.room {
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+  border: 8px solid white;
+  border-radius: 30px;
+  background:
+    linear-gradient(
+      #bde9ff 0%,
+      #bde9ff 62%,
+      #d9b98c 62%,
+      #d9b98c 100%
+    );
+  box-shadow: 0 15px 40px #0002;
+}
+
+/* JANELA */
+
+.window {
+  position: absolute;
+  top: 45px;
+  left: 50px;
+
+  width: 190px;
+  height: 140px;
+
+  background: #82d1ff;
+  border: 10px solid white;
+  border-radius: 15px;
+
+  font-size: 40px;
+  text-align: right;
+  padding: 5px;
+}
+
+/* POSTER */
+
+.poster {
+  position: absolute;
+  top: 55px;
+  right: 70px;
+
+  background: #fff1a8;
+  padding: 20px;
+
+  text-align: center;
+
+  border: 5px solid white;
+  border-radius: 12px;
+
+  transform: rotate(4deg);
+
+  box-shadow: 0 5px 15px #0002;
+}
+
+/* CAMA */
+
+.bed {
+  position: absolute;
+
+  right: 30px;
+  bottom: 50px;
+
+  width: 290px;
+  height: 125px;
+
+  background: #9c78d8;
+
+  border-radius: 80px 80px 20px 20px;
+
+  border: 10px solid #805bbd;
+
+  text-align: center;
+
+  padding-top: 20px;
+
+  font-size: 40px;
+}
+
+/* TAPETE */
+
+.rug {
+  position: absolute;
+
+  left: 28%;
+  bottom: 15px;
+
+  width: 440px;
+  height: 90px;
+
+  background: #f5c5d7;
+
+  border-radius: 50%;
+}
+
+/* CACHORRO */
+
+.dog-area {
+  position: absolute;
+
+  left: 50%;
+  bottom: 65px;
+
+  transform: translateX(-50%);
+
+  width: 250px;
+  height: 300px;
+}
+
+.dog {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: 175px;
+  height: 260px;
+
+  transition: 0.3s;
+}
+
+/* CABEÇA */
+
+.head {
+  position: absolute;
+
+  left: 27px;
+  top: 15px;
+
+  width: 120px;
+  height: 110px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  border: 3px solid #dce2ea;
+
+  z-index: 4;
+}
+
+/* ORELHAS */
+
+.ear {
+  position: absolute;
+
+  top: 18px;
+
+  width: 48px;
+  height: 82px;
+
+  background: #20242c;
+
+  border-radius: 50%;
+
+  z-index: 2;
+}
+
+.ear.left {
+  left: 14px;
+  transform: rotate(28deg);
+}
+
+.ear.right {
+  right: 14px;
+  transform: rotate(-28deg);
+}
+
+/* MANCHA DA CABEÇA */
+
+.spot {
+  position: absolute;
+
+  right: 9px;
+  top: 5px;
+
+  width: 42px;
+  height: 52px;
+
+  background: #252932;
+
+  border-radius: 55%;
+}
+
+/* OLHOS */
+
+.eye {
+  position: absolute;
+
+  top: 48px;
+
+  width: 10px;
+  height: 13px;
+
+  background: #17202b;
+
+  border-radius: 50%;
+}
+
+.left-eye {
+  left: 32px;
+}
+
+.right-eye {
+  right: 32px;
+}
+
+/* FOCINHO */
+
+.snout {
+  position: absolute;
+
+  left: 36px;
+  bottom: 13px;
+
+  width: 48px;
+  height: 35px;
+
+  background: #fff1e8;
+
+  border-radius: 50%;
+
+  text-align: center;
+}
+
+.nose {
+  font-size: 13px;
+}
+
+/* CORPO */
+
+.body {
+  position: absolute;
+
+  left: 40px;
+  top: 105px;
+
+  width: 100px;
+  height: 120px;
+
+  background: white;
+
+  border: 3px solid #dce2ea;
+
+  border-radius: 45% 45% 30% 30%;
+
+  z-index: 3;
+}
+
+/* MANCHA DO CORPO */
+
+.body-spot {
+  position: absolute;
+
+  left: 8px;
+  top: 25px;
+
+  width: 43px;
+  height: 52px;
+
+  background: #242932;
+
+  border-radius: 60%;
+}
+
+/* PATAS */
+
+.leg {
+  position: absolute;
+
+  top: 195px;
+
+  width: 35px;
+  height: 65px;
+
+  background: white;
+
+  border: 3px solid #dce2ea;
+
+  border-radius: 20px;
+
+  z-index: 2;
+}
+
+.leg1 {
+  left: 42px;
+}
+
+.leg2 {
+  left: 70px;
+}
+
+.leg3 {
+  right: 35px;
+}
+
+.leg4 {
+  right: 62px;
+}
+
+/* RABO */
+
+.tail {
+  position: absolute;
+
+  right: 0;
+  top: 135px;
+
+  font-size: 60px;
+
+  color: #242932;
+
+  transform: rotate(-25deg);
+}
+
+/* FALA */
+
+.bubble {
+  position: absolute;
+
+  top: -10px;
+  right: -40px;
+
+  background: white;
+
+  padding: 10px 14px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 7px 18px #0002;
+
+  font-weight: bold;
+
+  z-index: 8;
+
+  min-width: 170px;
+
+  text-align: center;
+}
+
+/* STATUS */
+
+.status,
+.actions {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 20px;
+
+  margin-top: 16px;
+
+  box-shadow: 0 10px 30px #0001;
+}
+
+.status h2,
+.actions h2 {
+  margin-top: 0;
+}
+
+.mood {
+  display: inline-block;
+
+  background: #eaf8e8;
+
+  padding: 8px 15px;
+
+  border-radius: 15px;
+
+  font-weight: bold;
+
+  margin-bottom: 15px;
+}
+
+.meter {
+  display: grid;
+
+  grid-template-columns: 100px 1fr 35px;
+
+  gap: 10px;
+
+  align-items: center;
+
+  margin: 10px 0;
+
+  font-weight: bold;
+}
+
+.bar {
+  height: 14px;
+
+  background: #e8edf3;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+.bar div {
+  height: 100%;
+
+  width: 80%;
+
+  background: #6bc879;
+
+  border-radius: 20px;
+
+  transition: 0.3s;
+}
+
+/* BOTÕES */
+
+.buttons {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+}
+
+button {
+  border: none;
+
+  background: #f2f6ff;
+
+  border-radius: 18px;
+
+  padding: 15px 8px;
+
+  cursor: pointer;
+
+  font-size: 28px;
+
+  font-weight: bold;
+
+  color: #27344d;
+
+  transition: 0.2s;
+}
+
+button span {
+  display: block;
+
+  font-size: 14px;
+
+  margin-top: 7px;
+}
+
+button:hover {
+  transform: translateY(-4px);
+
+  background: #e5f2ff;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* ANIMAÇÃO */
+
+.play {
+  animation: jump 0.5s infinite alternate;
+}
+
+.sleep {
+  transform: translateX(-50%) rotate(8deg);
+  filter: brightness(0.8);
+}
+
+@keyframes jump {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(-50%) translateY(-18px);
+  }
+}
+
+footer {
+  text-align: center;
+
+  color: #758095;
+
+  padding: 20px;
+}
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+  body {
+    padding: 10px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .room {
+    height: 430px;
+  }
+
+  .window {
+    left: 20px;
+    transform: scale(0.75);
+    transform-origin: top left;
+  }
+
+  .poster {
+    right: 10px;
+    transform: scale(0.7);
+  }
+
+  .bed {
+    right: -40px;
+    transform: scale(0.8);
+    transform-origin: right bottom;
+  }
+
+  .buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .meter {
+    grid-template-columns: 85px 1fr 30px;
+  }
+}
