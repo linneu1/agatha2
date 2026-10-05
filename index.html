@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blade - Pet Virtual</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="game">
+
+    <header>
+      <div>
+        <small>🐾 Criado por Agatha • 3º ano</small>
+        <h1>🐶 Blade</h1>
+        <p>Cuide do seu melhor amigo!</p>
+      </div>
+
+      <div class="points">
+        ⭐ <span id="stars">0</span>
+        💰 <span id="coins">0</span>
+      </div>
+    </header>
+
+    <section class="room">
+
+      <div class="window">
+        ☀️
+      </div>
+
+      <div class="poster">
+        🐶<br>
+        <b>BLADE</b>
+      </div>
+
+      <div class="bed">
+        💤
+      </div>
+
+      <div class="rug"></div>
+
+      <div class="dog-area">
+
+        <div id="dog" class="dog">
+
+          <div class="ear left"></div>
+          <div class="ear right"></div>
+
+          <div class="head">
+            <div class="spot"></div>
+
+            <div class="eye left-eye"></div>
+            <div class="eye right-eye"></div>
+
+            <div class="snout">
+              <div class="nose">●</div>
+              <div>⌣</div>
+            </div>
+          </div>
+
+          <div class="body">
+            <div class="body-spot"></div>
+          </div>
+
+          <div class="leg leg1"></div>
+          <div class="leg leg2"></div>
+          <div class="leg leg3"></div>
+          <div class="leg leg4"></div>
+
+          <div class="tail">〰</div>
+
+        </div>
+
+        <div id="bubble" class="bubble">
+          Oi! Eu sou o Blade! 🐶
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="status">
+
+      <h2>Como o Blade está?</h2>
+
+      <div class="mood" id="mood">
+        😊 Feliz
+      </div>
+
+      <div class="meter">
+        <span>🍖 Fome</span>
+        <div class="bar">
+          <div id="hunger"></div>
+        </div>
+        <b id="hungerText">80</b>
+      </div>
+
+      <div class="meter">
+        <span>💧 Sede</span>
+        <div class="bar">
+          <div id="thirst"></div>
+        </div>
+        <b id="thirstText">80</b>
+      </div>
+
+      <div class="meter">
+        <span>🧼 Limpeza</span>
+        <div class="bar">
+          <div id="clean"></div>
+        </div>
+        <b id="cleanText">70</b>
+      </div>
+
+      <div class="meter">
+        <span>❤️ Alegria</span>
+        <div class="bar">
+          <div id="fun"></div>
+        </div>
+        <b id="funText">80</b>
+      </div>
+
+      <div class="meter">
+        <span>😴 Energia</span>
+        <div class="bar">
+          <div id="energy"></div>
+        </div>
+        <b id="energyText">80</b>
+      </div>
+
+    </section>
+
+    <section class="actions">
+
+      <h2>🐾 O que vamos fazer?</h2>
+
+      <div class="buttons">
+
+        <button onclick="doAction('yard')">
+          🌳
+          <span>Brincar no quintal</span>
+        </button>
+
+        <button onclick="doAction('walk')">
+          🦮
+          <span>Passear</span>
+        </button>
+
+        <button onclick="doAction('food')">
+          🍖
+          <span>Dar ração</span>
+        </button>
+
+        <button onclick="doAction('water')">
+          💧
+          <span>Dar água</span>
+        </button>
+
+        <button onclick="doAction('bath')">
+          🛁
+          <span>Dar banho</span>
+        </button>
+
+        <button onclick="doAction('sleep')">
+          🛏️
+          <span>Dormir</span>
+        </button>
+
+        <button onclick="doAction('teeth')">
+          🪥
+          <span>Escovar dentes</span>
+        </button>
+
+        <button onclick="doAction('brush')">
+          🧴
+          <span>Escovar pelo</span>
+        </button>
+
+      </div>
+
+    </section>
+
+    <footer>
+      🐾 Blade — Um jogo criado por Agatha 💙
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #dff5ff, #f8eaff);
+  color: #27344d;
+}
+
+.game {
+  max-width: 1050px;
+  margin: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+header small {
+  color: #70798c;
+  font-weight: bold;
+}
+
+h1 {
+  margin: 3px 0;
+  font-size: 45px;
+}
+
+header p {
+  margin: 0;
+  color: #68738b;
+}
+
+.points {
+  background: white;
+  padding: 15px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  box-shadow: 0 5px 20px #0002;
+}
+
+/* QUARTO */
+
+.room {
+  height: 480px;
+  position: relative;
+  overflow: hidden;
+  border: 8px solid white;
+  border-radius: 30px;
+  background:
+    linear-gradient(
+      #bde9ff 0%,
+      #bde9ff 62%,
+      #d9b98c 62%,
+      #d9b98c 100%
+    );
+  box-shadow: 0 15px 40px #0002;
+}
+
+/* JANELA */
+
+.window {
+  position: absolute;
+  top: 45px;
+  left: 50px;
+
+  width: 190px;
+  height: 140px;
+
+  background: #82d1ff;
+  border: 10px solid white;
+  border-radius: 15px;
+
+  font-size: 40px;
+  text-align: right;
+  padding: 5px;
+}
+
+/* POSTER */
+
+.poster {
+  position: absolute;
+  top: 55px;
+  right: 70px;
+
+  background: #fff1a8;
+  padding: 20px;
+
+  text-align: center;
+
+  border: 5px solid white;
+  border-radius: 12px;
+
+  transform: rotate(4deg);
+
+  box-shadow: 0 5px 15px #0002;
+}
+
+/* CAMA */
+
+.bed {
+  position: absolute;
+
+  right: 30px;
+  bottom: 50px;
+
+  width: 290px;
+  height: 125px;
+
+  background: #9c78d8;
+
+  border-radius: 80px 80px 20px 20px;
+
+  border: 10px solid #805bbd;
+
+  text-align: center;
+
+  padding-top: 20px;
+
+  font-size: 40px;
+}
+
+/* TAPETE */
+
+.rug {
+  position: absolute;
+
+  left: 28%;
+  bottom: 15px;
+
+  width: 440px;
+  height: 90px;
+
+  background: #f5c5d7;
+
+  border-radius: 50%;
+}
+
+/* CACHORRO */
+
+.dog-area {
+  position: absolute;
+
+  left: 50%;
+  bottom: 65px;
+
+  transform: translateX(-50%);
+
+  width: 250px;
+  height: 300px;
+}
+
+.dog {
+  position: absolute;
+
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: 175px;
+  height: 260px;
+
+  transition: 0.3s;
+}
+
+/* CABEÇA */
+
+.head {
+  position: absolute;
+
+  left: 27px;
+  top: 15px;
+
+  width: 120px;
+  height: 110px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  border: 3px solid #dce2ea;
+
+  z-index: 4;
+}
+
+/* ORELHAS */
+
+.ear {
+  position: absolute;
+
+  top: 18px;
+
+  width: 48px;
+  height: 82px;
+
+  background: #20242c;
+
+  border-radius: 50%;
+
+  z-index: 2;
+}
+
+.ear.left {
+  left: 14px;
+  transform: rotate(28deg);
+}
+
+.ear.right {
+  right: 14px;
+  transform: rotate(-28deg);
+}
+
+/* MANCHA DA CABEÇA */
+
+.spot {
+  position: absolute;
+
+  right: 9px;
+  top: 5px;
+
+  width: 42px;
+  height: 52px;
+
+  background: #252932;
+
+  border-radius: 55%;
+}
+
+/* OLHOS */
+
+.eye {
+  position: absolute;
+
+  top: 48px;
+
+  width: 10px;
+  height: 13px;
+
+  background: #17202b;
+
+  border-radius: 50%;
+}
+
+.left-eye {
+  left: 32px;
+}
+
+.right-eye {
+  right: 32px;
+}
+
+/* FOCINHO */
+
+.snout {
+  position: absolute;
+
+  left: 36px;
+  bottom: 13px;
+
+  width: 48px;
+  height: 35px;
+
+  background: #fff1e8;
+
+  border-radius: 50%;
+
+  text-align: center;
+}
+
+.nose {
+  font-size: 13px;
+}
+
+/* CORPO */
+
+.body {
+  position: absolute;
+
+  left: 40px;
+  top: 105px;
+
+  width: 100px;
+  height: 120px;
+
+  background: white;
+
+  border: 3px solid #dce2ea;
+
+  border-radius: 45% 45% 30% 30%;
+
+  z-index: 3;
+}
+
+/* MANCHA DO CORPO */
+
+.body-spot {
+  position: absolute;
+
+  left: 8px;
+  top: 25px;
+
+  width: 43px;
+  height: 52px;
+
+  background: #242932;
+
+  border-radius: 60%;
+}
+
+/* PATAS */
+
+.leg {
+  position: absolute;
+
+  top: 195px;
+
+  width: 35px;
+  height: 65px;
+
+  background: white;
+
+  border: 3px solid #dce2ea;
+
+  border-radius: 20px;
+
+  z-index: 2;
+}
+
+.leg1 {
+  left: 42px;
+}
+
+.leg2 {
+  left: 70px;
+}
+
+.leg3 {
+  right: 35px;
+}
+
+.leg4 {
+  right: 62px;
+}
+
+/* RABO */
+
+.tail {
+  position: absolute;
+
+  right: 0;
+  top: 135px;
+
+  font-size: 60px;
+
+  color: #242932;
+
+  transform: rotate(-25deg);
+}
+
+/* FALA */
+
+.bubble {
+  position: absolute;
+
+  top: -10px;
+  right: -40px;
+
+  background: white;
+
+  padding: 10px 14px;
+
+  border-radius: 18px;
+
+  box-shadow: 0 7px 18px #0002;
+
+  font-weight: bold;
+
+  z-index: 8;
+
+  min-width: 170px;
+
+  text-align: center;
+}
+
+/* STATUS */
+
+.status,
+.actions {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 20px;
+
+  margin-top: 16px;
+
+  box-shadow: 0 10px 30px #0001;
+}
+
+.status h2,
+.actions h2 {
+  margin-top: 0;
+}
+
+.mood {
+  display: inline-block;
+
+  background: #eaf8e8;
+
+  padding: 8px 15px;
+
+  border-radius: 15px;
+
+  font-weight: bold;
+
+  margin-bottom: 15px;
+}
+
+.meter {
+  display: grid;
+
+  grid-template-columns: 100px 1fr 35px;
+
+  gap: 10px;
+
+  align-items: center;
+
+  margin: 10px 0;
+
+  font-weight: bold;
+}
+
+.bar {
+  height: 14px;
+
+  background: #e8edf3;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+.bar div {
+  height: 100%;
+
+  width: 80%;
+
+  background: #6bc879;
+
+  border-radius: 20px;
+
+  transition: 0.3s;
+}
+
+/* BOTÕES */
+
+.buttons {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+}
+
+button {
+  border: none;
+
+  background: #f2f6ff;
+
+  border-radius: 18px;
+
+  padding: 15px 8px;
+
+  cursor: pointer;
+
+  font-size: 28px;
+
+  font-weight: bold;
+
+  color: #27344d;
+
+  transition: 0.2s;
+}
+
+button span {
+  display: block;
+
+  font-size: 14px;
+
+  margin-top: 7px;
+}
+
+button:hover {
+  transform: translateY(-4px);
+
+  background: #e5f2ff;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* ANIMAÇÃO */
+
+.play {
+  animation: jump 0.5s infinite alternate;
+}
+
+.sleep {
+  transform: translateX(-50%) rotate(8deg);
+  filter: brightness(0.8);
+}
+
+@keyframes jump {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(-50%) translateY(-18px);
+  }
+}
+
+footer {
+  text-align: center;
+
+  color: #758095;
+
+  padding: 20px;
+}
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+  body {
+    padding: 10px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .room {
+    height: 430px;
+  }
+
+  .window {
+    left: 20px;
+    transform: scale(0.75);
+    transform-origin: top left;
+  }
+
+  .poster {
+    right: 10px;
+    transform: scale(0.7);
+  }
+
+  .bed {
+    right: -40px;
+    transform: scale(0.8);
+    transform-origin: right bottom;
+  }
+
+  .buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .meter {
+    grid-template-columns: 85px 1fr 30px;
+  }
+}
+let hunger = 80;
+let thirst = 80;
+let clean = 70;
+let fun = 80;
+let energy = 80;
+
+let stars = 0;
+let coins = 0;
+
+const dog = document.getElementById("dog");
+const bubble = document.getElementById("bubble");
+
+function limit(value) {
+  return Math.max(0, Math.min(100, value));
+}
+
+function updateGame() {
+
+  hunger = limit(hunger);
+  thirst = limit(thirst);
+  clean = limit(clean);
+  fun = limit(fun);
+  energy = limit(energy);
+
+  document.getElementById("hunger").style.width = hunger + "%";
+  document.getElementById("thirst").style.width = thirst + "%";
+  document.getElementById("clean").style.width = clean + "%";
+  document.getElementById("fun").style.width = fun + "%";
+  document.getElementById("energy").style.width = energy + "%";
+
+  document.getElementById("hungerText").textContent = Math.round(hunger);
+  document.getElementById("thirstText").textContent = Math.round(thirst);
+  document.getElementById("cleanText").textContent = Math.round(clean);
+  document.getElementById("funText").textContent = Math.round(fun);
+  document.getElementById("energyText").textContent = Math.round(energy);
+
+  document.getElementById("stars").textContent = stars;
+  document.getElementById("coins").textContent = coins;
+
+  let average =
+    (hunger + thirst + clean + fun + energy) / 5;
+
+  if (average >= 80) {
+    document.getElementById("mood").textContent =
+      "🤩 Blade está muito feliz!";
+  }
+
+  else if (average >= 60) {
+    document.getElementById("mood").textContent =
+      "😊 Blade está feliz!";
+  }
+
+  else if (average >= 40) {
+    document.getElementById("mood").textContent =
+      "🙂 Blade está bem!";
+  }
+
+  else if (average >= 20) {
+    document.getElementById("mood").textContent =
+      "🥺 Blade precisa de cuidados!";
+  }
+
+  else {
+    document.getElementById("mood").textContent =
+      "😴 Blade está cansadinho!";
+  }
+}
+
+function say(message) {
+
+  bubble.textContent = message;
+
+  setTimeout(() => {
+    bubble.textContent = "O que vamos fazer? 🐶";
+  }, 3000);
+}
+
+function animate(type) {
+
+  dog.classList.remove("play");
+  dog.classList.remove("sleep");
+
+  if (type === "yard" || type === "walk") {
+
+    dog.classList.add("play");
+
+    setTimeout(() => {
+      dog.classList.remove("play");
+    }, 2000);
+  }
+
+  if (type === "sleep") {
+
+    dog.classList.add("sleep");
+
+    setTimeout(() => {
+      dog.classList.remove("sleep");
+    }, 3000);
+  }
+}
+
+function reward(amount) {
+
+  stars += amount;
+  coins += amount * 2;
+
+  updateGame();
+}
+
+function doAction(action) {
+
+  if (action === "yard") {
+
+    fun += 18;
+    energy -= 10;
+    hunger -= 7;
+    thirst -= 8;
+
+    say("Que divertido! Blade adorou brincar no quintal! 🌳🐶");
+
+    reward(3);
+  }
+
+  if (action === "walk") {
+
+    fun += 20;
+    energy -= 12;
+    hunger -= 5;
+    thirst -= 8;
+
+    say("Blade voltou do passeio muito feliz! 🦮✨");
+
+    reward(4);
+  }
+
+  if (action === "food") {
+
+    hunger += 25;
+    fun += 4;
+
+    say("Nhac nhac! Blade comeu toda a ração! 🍖");
+
+    reward(2);
+  }
+
+  if (action === "water") {
+
+    thirst += 30;
+    fun += 2;
+
+    say("Glup glup! Água fresquinha! 💧");
+
+    reward(2);
+  }
+
+  if (action === "bath") {
+
+    clean += 35;
+    fun -= 3;
+    energy -= 3;
+
+    say("Banho tomado! Blade está cheirosinho! 🛁🫧");
+
+    reward(3);
+  }
+
+  if (action === "sleep") {
+
+    energy += 35;
+    fun += 5;
+
+    say("Boa noite, Blade! Bons sonhos! 💤");
+
+    reward(3);
+  }
+
+  if (action === "teeth") {
+
+    clean += 12;
+    fun += 3;
+
+    say("Os dentes do Blade estão limpinhos! 🪥😁");
+
+    reward(2);
+  }
+
+  if (action === "brush") {
+
+    clean += 20;
+    fun += 6;
+
+    say("O pelo do Blade ficou lindo e macio! 🧴🐶");
+
+    reward(2);
+  }
+
+  animate(action);
+
+  updateGame();
+}
+
+/* O Blade vai ficando com fome, sede etc. com o tempo */
+
+setInterval(() => {
+
+  hunger -= 1;
+  thirst -= 1;
+  clean -= 0.5;
+  fun -= 0.7;
+  energy -= 0.4;
+
+  updateGame();
+
+}, 12000);
+
+updateGame();
